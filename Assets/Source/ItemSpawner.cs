@@ -52,7 +52,7 @@ namespace Source
             obj.transform.position =
                 cameraTransform.position + cameraTransform.forward * 0.3f + cameraTransform.right * 0.3f;
             var objRb = obj.GetComponent<Rigidbody>();
-            objRb.AddForce(cameraTransform.forward * 0.2f, ForceMode.Impulse);
+            objRb.AddForce(cameraTransform.forward * 0.15f, ForceMode.Impulse);
             var block = obj.GetComponent<BlockScript>();
 
             if (resetPositionForBlocks)
