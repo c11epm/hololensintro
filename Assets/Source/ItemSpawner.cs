@@ -5,26 +5,20 @@ namespace Source
     public class ItemSpawner : MonoBehaviour
     {
         [SerializeField] private GameObject itemToSpawn;
-
         [SerializeField] private Transform resetTransform;
-
         [SerializeField] private float resetDistance = 10f;
-
         [SerializeField] private bool resetPositionForBlocks = false;
-
         [SerializeField] private bool autoSpawn = false;
 
         private Camera mainCamera;
-
         private float spawnTimer = 0;
-
         private float spawnInterval = 0.4f;
 
-        // Start is called before the first frame update
         private void Awake()
         {
         }
 
+        // Start is called before the first frame update
         private void Start()
         {
             mainCamera = Camera.main;

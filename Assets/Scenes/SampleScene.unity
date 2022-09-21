@@ -2333,6 +2333,10 @@ PrefabInstance:
       propertyPath: currentIconName
       value: Icon 133
       objectReference: {fileID: 0}
+    - target: {fileID: 1215891772897456384, guid: b47d2b8d67c0c33be84d324303a97ac5, type: 3}
+      propertyPath: m_text
+      value: Spatial Mesh
+      objectReference: {fileID: 0}
     - target: {fileID: 1956513943304120215, guid: b47d2b8d67c0c33be84d324303a97ac5, type: 3}
       propertyPath: onClicked.m_PersistentCalls.m_Calls.Array.size
       value: 1
@@ -2360,6 +2364,10 @@ PrefabInstance:
     - target: {fileID: 1956513943304120215, guid: b47d2b8d67c0c33be84d324303a97ac5, type: 3}
       propertyPath: onClicked.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 2453664033205422495, guid: b47d2b8d67c0c33be84d324303a97ac5, type: 3}
+      propertyPath: m_text
+      value: Show Cube
       objectReference: {fileID: 0}
     - target: {fileID: 3023166871445593864, guid: b47d2b8d67c0c33be84d324303a97ac5, type: 3}
       propertyPath: onClicked.m_PersistentCalls.m_Calls.Array.size
@@ -2531,7 +2539,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3023166871445593864, guid: b47d2b8d67c0c33be84d324303a97ac5, type: 3}
       propertyPath: isToggled.onExited.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_StringArgument
-      value: Show Cube!
+      value: Show Cube
       objectReference: {fileID: 0}
     - target: {fileID: 3023166871445593864, guid: b47d2b8d67c0c33be84d324303a97ac5, type: 3}
       propertyPath: isToggled.onExited.m_PersistentCalls.m_Calls.Array.data[2].m_Arguments.m_StringArgument
@@ -2539,7 +2547,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3023166871445593864, guid: b47d2b8d67c0c33be84d324303a97ac5, type: 3}
       propertyPath: isToggled.onEntered.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_StringArgument
-      value: Hide Cube!
+      value: Hide Cube
       objectReference: {fileID: 0}
     - target: {fileID: 3023166871445593864, guid: b47d2b8d67c0c33be84d324303a97ac5, type: 3}
       propertyPath: isToggled.onEntered.m_PersistentCalls.m_Calls.Array.data[2].m_Arguments.m_StringArgument
@@ -2572,6 +2580,10 @@ PrefabInstance:
     - target: {fileID: 3023166871445593864, guid: b47d2b8d67c0c33be84d324303a97ac5, type: 3}
       propertyPath: isToggled.onEntered.m_PersistentCalls.m_Calls.Array.data[2].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 3884397375616533725, guid: b47d2b8d67c0c33be84d324303a97ac5, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.0858
       objectReference: {fileID: 0}
     - target: {fileID: 3995736695051429462, guid: b47d2b8d67c0c33be84d324303a97ac5, type: 3}
       propertyPath: m_text
@@ -2607,7 +2619,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5351508955972995752, guid: b47d2b8d67c0c33be84d324303a97ac5, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6283386832317208269, guid: b47d2b8d67c0c33be84d324303a97ac5, type: 3}
       propertyPath: m_text

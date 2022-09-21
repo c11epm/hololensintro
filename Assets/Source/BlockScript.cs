@@ -5,7 +5,7 @@ namespace Source
 {
     public class BlockScript : MonoBehaviour
     {
-        private Rigidbody rigidbody;
+        private Rigidbody rigidbodyComponent;
 
         public bool ResetPosition { get; set; }
 
@@ -15,7 +15,7 @@ namespace Source
 
         private void Start()
         {
-            rigidbody = GetComponent<Rigidbody>();
+            rigidbodyComponent = GetComponent<Rigidbody>();
         }
 
         private void Update()
@@ -24,8 +24,8 @@ namespace Source
             {
                 if ((transform.position - ResetTransform.position).magnitude > ResetDistance)
                 {
-                    rigidbody.velocity = Vector3.zero;
-                    rigidbody.angularVelocity = Vector3.zero;
+                    rigidbodyComponent.velocity = Vector3.zero;
+                    rigidbodyComponent.angularVelocity = Vector3.zero;
                     transform.rotation = Quaternion.identity;
                     var pos = ResetTransform.position + ResetTransform.up * 0.8f;
                     pos.x = Random.Range(pos.x -0.3f, pos.x +0.3f);

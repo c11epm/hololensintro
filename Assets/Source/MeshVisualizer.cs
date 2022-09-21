@@ -13,12 +13,12 @@ namespace Source
         void Start()
         {
             meshVisualizer = GetComponent<GenericSpatialMeshVisualizer>();
+            buttonText.text = meshVisualizer.DisplayOption.ToString();
         }
 
         // Update is called once per frame
         void Update()
         {
-        
         }
 
         public void UseNextSpatialAwarenessMeshDisplayOption()
