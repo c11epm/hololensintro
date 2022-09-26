@@ -1,4 +1,7 @@
+using Microsoft.MixedReality.Toolkit;
+using Microsoft.MixedReality.Toolkit.Subsystems;
 using UnityEngine;
+using UnityEngine.XR;
 
 namespace Source
 {
@@ -10,9 +13,12 @@ namespace Source
         [SerializeField] private bool resetPositionForBlocks = false;
         [SerializeField] private bool autoSpawn = false;
 
-        private Camera mainCamera;
-        private float spawnTimer = 0;
-        private float spawnInterval = 0.4f;
+        private Camera _mainCamera;
+        private float _spawnTimer = 0;
+        private float _spawnInterval = 0.4f;
+        private HandsAggregatorSubsystem handAggregator;
+        [SerializeField] private HandJointPose rightPalm;
+        private bool rightHandStatus;
 
         private void Awake()
         {
@@ -21,7 +27,8 @@ namespace Source
         // Start is called before the first frame update
         private void Start()
         {
-            mainCamera = Camera.main;
+            _mainCamera = Camera.main;
+            handAggregator = XRSubsystemHelpers.GetFirstRunningSubsystem<HandsAggregatorSubsystem>();
         }
 
         // Update is called once per frame
@@ -29,29 +36,42 @@ namespace Source
         {
             if (autoSpawn)
             {
-                if (spawnTimer > spawnInterval)
+                rightHandStatus = handAggregator.TryGetJoint(TrackedHandJoint.Palm, XRNode.RightHand, out rightPalm);
+                //print("Right palm is: " + rightHandStatus);
+
+                var rightHandIsValid =
+                    handAggregator.TryGetPalmFacingAway(XRNode.RightHand, out var isRightPalmFacingAway);
+
+                if (_spawnTimer > _spawnInterval)
                 {
-                    SpawnObject();
-                    spawnTimer = 0;
+                    SpawnObject(rightHandIsValid && isRightPalmFacingAway);
+                    _spawnTimer = 0;
                 }
 
-                spawnTimer += Time.deltaTime;
+                _spawnTimer += Time.deltaTime;
             }
         }
 
-        public void SpawnObject()
+        public void SpawnObject(bool fromHand = false)
         {
             var obj = Instantiate(itemToSpawn, transform);
-            var cameraTransform = mainCamera.transform;
-            obj.transform.position =
-                cameraTransform.position + cameraTransform.forward * 0.3f + cameraTransform.right * 0.3f;
+            var cameraTransform = _mainCamera.transform;
             var objRb = obj.GetComponent<Rigidbody>();
-            objRb.AddForce(cameraTransform.forward * 0.15f, ForceMode.Impulse);
             var block = obj.GetComponent<BlockScript>();
+            if (fromHand)
+            {
+                obj.transform.position = rightPalm.Position;
+                objRb.AddForce(-rightPalm.Up * 0.1f, ForceMode.Impulse);
+            }
+            else
+            {
+                obj.transform.position =
+                    cameraTransform.position + cameraTransform.forward * 0.4f + cameraTransform.right * 0.4f;
+                objRb.AddForce(cameraTransform.forward * 0.1f, ForceMode.Impulse);
+            }
 
             if (resetPositionForBlocks)
             {
-                block.ResetTransform = resetTransform;
                 block.ResetDistance = resetDistance;
                 block.ResetPosition = resetPositionForBlocks;
             }
@@ -60,7 +80,7 @@ namespace Source
         public void EnableAutoSpawn(bool status)
         {
             autoSpawn = status;
-            spawnTimer = 0;
+            _spawnTimer = 0;
         }
 
         public void RemoveSpawns()

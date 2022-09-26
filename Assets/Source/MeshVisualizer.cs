@@ -6,14 +6,14 @@ namespace Source
 {
     public class MeshVisualizer : MonoBehaviour
     {
-        private GenericSpatialMeshVisualizer meshVisualizer;
+        private GenericSpatialMeshVisualizer _meshVisualizer;
 
         [SerializeField] private TextMeshPro buttonText;
         // Start is called before the first frame update
         void Start()
         {
-            meshVisualizer = GetComponent<GenericSpatialMeshVisualizer>();
-            buttonText.text = meshVisualizer.DisplayOption.ToString();
+            _meshVisualizer = GetComponent<GenericSpatialMeshVisualizer>();
+            buttonText.text = _meshVisualizer.DisplayOption.ToString();
         }
 
         // Update is called once per frame
@@ -23,8 +23,8 @@ namespace Source
 
         public void UseNextSpatialAwarenessMeshDisplayOption()
         {
-            meshVisualizer.DisplayOption = GetNextDisplayOptions(meshVisualizer.DisplayOption);
-            buttonText.text = meshVisualizer.DisplayOption.ToString();
+            _meshVisualizer.DisplayOption = GetNextDisplayOptions(_meshVisualizer.DisplayOption);
+            buttonText.text = _meshVisualizer.DisplayOption.ToString();
         }
 
         private SpatialAwarenessMeshDisplayOptions GetNextDisplayOptions(SpatialAwarenessMeshDisplayOptions option)
