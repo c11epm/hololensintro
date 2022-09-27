@@ -7,10 +7,10 @@ namespace Source
     {
         private Rigidbody _rigidbody;
 
-        public bool ResetPosition { get; set; }
+        public bool ResetPosition { get; set; } = true;
 
-        public float ResetDistance { get; set; }
-        
+        public float ResetDistance { get; set; } = 10;
+
         private void Start()
         {
             _rigidbody = GetComponent<Rigidbody>();
@@ -24,7 +24,6 @@ namespace Source
                 {
                     _rigidbody.velocity = Vector3.zero;
                     _rigidbody.angularVelocity = Vector3.zero;
-                    transform.rotation = Quaternion.identity;
                     var pos = transform.parent.position + transform.parent.up * 0.8f;
                     pos.x = Random.Range(pos.x -0.3f, pos.x +0.3f);
                     pos.y = Random.Range(pos.y -0.3f, pos.y +0.3f);
