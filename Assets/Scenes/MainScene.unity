@@ -174,7 +174,7 @@ Transform:
   - {fileID: 291185544}
   - {fileID: 848453388}
   m_Father: {fileID: 1559837062}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &134911651
 MonoBehaviour:
@@ -281,6 +281,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 142007140022173312, guid: 4d7e2f87fefe0ba468719b15288b46e7, type: 3}
+      propertyPath: m_ModelPrefab
+      value: 
+      objectReference: {fileID: 5628645879690978858, guid: c8ddde59197f0e77d9600cac20483496, type: 3}
     - target: {fileID: 2351505567455720332, guid: 4d7e2f87fefe0ba468719b15288b46e7, type: 3}
       propertyPath: m_RootOrder
       value: 1
@@ -329,6 +333,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: MRTK XR Rig
       objectReference: {fileID: 0}
+    - target: {fileID: 8243387927138557102, guid: 4d7e2f87fefe0ba468719b15288b46e7, type: 3}
+      propertyPath: m_ModelPrefab
+      value: 
+      objectReference: {fileID: 9023158343009340832, guid: e3360b890dd2af9879a061feb806e97f, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4d7e2f87fefe0ba468719b15288b46e7, type: 3}
 --- !u!4 &350902861 stripped
@@ -756,7 +764,7 @@ GameObject:
   - component: {fileID: 922118663}
   - component: {fileID: 922118662}
   - component: {fileID: 922118665}
-  m_Layer: 0
+  m_Layer: 31
   m_Name: Wall E
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -867,7 +875,7 @@ GameObject:
   - component: {fileID: 943770004}
   - component: {fileID: 943770003}
   - component: {fileID: 943770007}
-  m_Layer: 0
+  m_Layer: 31
   m_Name: Floor
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1010,7 +1018,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1559837062}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1095138551
 MonoBehaviour:
@@ -1042,7 +1050,7 @@ GameObject:
   - component: {fileID: 1200517201}
   - component: {fileID: 1200517200}
   - component: {fileID: 1200517203}
-  m_Layer: 0
+  m_Layer: 31
   m_Name: Wall N
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1359,7 +1367,7 @@ Transform:
   - {fileID: 1200517199}
   - {fileID: 922118661}
   m_Father: {fileID: 1559837062}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &1426541783 stripped
 Transform:
@@ -1441,10 +1449,11 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1559837061}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -0.656, z: 0}
+  m_LocalPosition: {x: 0, y: -0.57, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
+  - {fileID: 1941427662}
   - {fileID: 1387154476}
   - {fileID: 134911650}
   - {fileID: 1095138550}
@@ -1771,13 +1780,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1941427658}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 2}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -0.448, y: 0.769, z: 2}
   m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_Father: {fileID: 1559837062}
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!54 &1941427663
 Rigidbody:
@@ -2619,7 +2628,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5351508955972995752, guid: b47d2b8d67c0c33be84d324303a97ac5, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6283386832317208269, guid: b47d2b8d67c0c33be84d324303a97ac5, type: 3}
       propertyPath: m_text
@@ -2629,9 +2638,13 @@ PrefabInstance:
       propertyPath: m_Name
       value: HandMenu
       objectReference: {fileID: 0}
+    - target: {fileID: 7104390660646272634, guid: b47d2b8d67c0c33be84d324303a97ac5, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7104390660646272637, guid: b47d2b8d67c0c33be84d324303a97ac5, type: 3}
       propertyPath: m_RootOrder
-      value: 6
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 7104390660646272637, guid: b47d2b8d67c0c33be84d324303a97ac5, type: 3}
       propertyPath: m_LocalPosition.x

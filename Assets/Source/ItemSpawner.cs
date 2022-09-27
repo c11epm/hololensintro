@@ -17,7 +17,7 @@ namespace Source
         private float _spawnTimer = 0;
         private float _spawnInterval = 0.4f;
         private HandsAggregatorSubsystem handAggregator;
-        [SerializeField] private HandJointPose rightPalm;
+        private HandJointPose rightPalm;
         private bool rightHandStatus;
 
         private void Awake()
