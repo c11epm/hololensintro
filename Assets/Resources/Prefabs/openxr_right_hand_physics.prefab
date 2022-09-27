@@ -705,6 +705,7 @@ GameObject:
   - component: {fileID: 3848949358068048460}
   - component: {fileID: 3891403924031820022}
   - component: {fileID: 4464570656829528416}
+  - component: {fileID: 5113761220978050712}
   m_Layer: 0
   m_Name: R_Hand
   m_TagString: Untagged
@@ -813,13 +814,29 @@ MeshCollider:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5753255210736451683}
-  m_Material: {fileID: 13400000, guid: 05816426eaab3b136b2d590c6296025d, type: 2}
+  m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 4
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: -653043844983088931, guid: ba7d82c8230bba148a0448874cca05cd, type: 3}
+--- !u!54 &5113761220978050712
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5753255210736451683}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 0
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!1 &5881339013466987954
 GameObject:
   m_ObjectHideFlags: 0
