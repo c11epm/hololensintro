@@ -2,6 +2,9 @@ using UnityEngine;
 
 namespace Source
 {
+    /// <summary>
+    /// Used to "tag" objects as debug objects to only be present in editor for debugging in Play Mode
+    /// </summary>
     public class DebugObject : MonoBehaviour
     {
         // Start is called before the first frame update

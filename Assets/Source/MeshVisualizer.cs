@@ -21,6 +21,9 @@ namespace Source
         {
         }
 
+        /// <summary>
+        /// Cycles through the mesh visualization modes and updates button text status
+        /// </summary>
         public void UseNextSpatialAwarenessMeshDisplayOption()
         {
             _meshVisualizer.DisplayOption = GetNextDisplayOptions(_meshVisualizer.DisplayOption);
