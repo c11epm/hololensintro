@@ -18,10 +18,10 @@ namespace Source
         private Camera _mainCamera;
         private float _spawnTimer = 0;
         private float _spawnInterval = 0.4f;
-        private HandsAggregatorSubsystem handAggregator;
-        private HandJointPose rightPalm;
-        private bool rightHandStatus;
-        private GameObject cube;
+        private HandsAggregatorSubsystem _handAggregator;
+        private HandJointPose _rightPalm;
+        private bool _rightHandStatus;
+        private GameObject _cube;
 
         private void Awake()
         {
@@ -41,7 +41,7 @@ namespace Source
         private void Start()
         {
             _mainCamera = Camera.main;
-            handAggregator = XRSubsystemHelpers.GetFirstRunningSubsystem<HandsAggregatorSubsystem>();
+            _handAggregator = XRSubsystemHelpers.GetFirstRunningSubsystem<HandsAggregatorSubsystem>();
             slider.SliderValue = 0.0f;
         }
 
@@ -50,15 +50,14 @@ namespace Source
         {
             if (autoSpawn)
             {
-                rightHandStatus = handAggregator.TryGetJoint(TrackedHandJoint.Palm, XRNode.RightHand, out rightPalm);
-                //print("Right palm is: " + rightHandStatus);
+                _rightHandStatus = _handAggregator.TryGetJoint(TrackedHandJoint.Palm, XRNode.RightHand, out _rightPalm);
 
                 var rightHandIsValid =
-                    handAggregator.TryGetPalmFacingAway(XRNode.RightHand, out var isRightPalmFacingAway);
+                    _handAggregator.TryGetPalmFacingAway(XRNode.RightHand, out var isRightPalmFacingAway);
 
-                if (_spawnTimer > _spawnInterval)
+                if (_spawnTimer > _spawnInterval && rightHandIsValid && isRightPalmFacingAway)
                 {
-                    SpawnObject(rightHandIsValid && isRightPalmFacingAway);
+                    SpawnObject();
                     _spawnTimer = 0;
                 }
 
@@ -71,9 +70,9 @@ namespace Source
         /// </summary>
         public void SpawnCube()
         {
-            cube = Instantiate(cubePrefab);
+            _cube = Instantiate(cubePrefab);
             var cameraTransform = _mainCamera.transform;
-            cube.transform.position = cameraTransform.position + cameraTransform.forward;
+            _cube.transform.position = cameraTransform.position + cameraTransform.forward;
         }
 
         /// <summary>
@@ -81,11 +80,12 @@ namespace Source
         /// </summary>
         public void DeleteCube()
         {
-            if (cube != null)
+            if (_cube != null)
             {
-                Destroy(cube);
+                Destroy(_cube);
             }
-            cube = null;
+
+            _cube = null;
         }
 
         //Slider for auto update spawn rate event function
@@ -106,7 +106,7 @@ namespace Source
         /// Spawns an Object (Block) from head or hand depending on the fromHand attribute
         /// </summary>
         /// <param name="fromHand">boolean telling if to spawn from right hand or not</param>
-        public void SpawnObject(bool fromHand = false)
+        public void SpawnObject()
         {
             //Instantiate Block Object from prefab and get references to components
             var obj = Instantiate(itemToSpawn, transform);
@@ -114,19 +114,9 @@ namespace Source
             var objRb = obj.GetComponent<Rigidbody>();
             var block = obj.GetComponent<BlockScript>();
 
-            if (fromHand)
-            {
-                //Spawn from hand position + normal from Palm (which is -rightPalm.Up), 30 cm.
-                obj.transform.position = rightPalm.Position + -rightPalm.Up * 0.3f;
-                objRb.AddForce(-rightPalm.Up * 0.1f, ForceMode.Impulse);
-            }
-            else
-            {
-                //Spawn from Head (camera position) + forward direction 40cm + right direction 40cm
-                obj.transform.position =
-                    cameraTransform.position + cameraTransform.forward * 0.4f + cameraTransform.right * 0.4f;
-                objRb.AddForce(cameraTransform.forward * 0.1f, ForceMode.Impulse);
-            }
+            //Spawn from hand position + normal from Palm (which is -rightPalm.Up), 30 cm.
+            obj.transform.position = _rightPalm.Position + -_rightPalm.Up * 0.3f;
+            objRb.AddForce(-_rightPalm.Up * 0.1f, ForceMode.Impulse);
 
             //Set reset properties if the blocks should reset their position
             if (resetPositionForBlocks)

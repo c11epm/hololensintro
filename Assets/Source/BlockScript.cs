@@ -6,12 +6,10 @@ namespace Source
 {
     public class BlockScript : MonoBehaviour
     {
-        private Rigidbody _rigidbody;
-
         public bool ResetPosition { get; set; } = true;
-
         public float ResetDistance { get; set; } = 10;
-
+        private Rigidbody _rigidbody;
+        
         private void Start()
         {
             _rigidbody = GetComponent<Rigidbody>();
