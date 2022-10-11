@@ -9,6 +9,7 @@ namespace Source
     public class ItemSpawner : MonoBehaviour
     {
         [SerializeField] private GameObject itemToSpawn;
+        [SerializeField] private GameObject cubePrefab;
         [SerializeField] private float resetDistance = 10f;
         [SerializeField] private bool resetPositionForBlocks = false;
         [SerializeField] private bool autoSpawn = false;
@@ -20,6 +21,7 @@ namespace Source
         private HandsAggregatorSubsystem handAggregator;
         private HandJointPose rightPalm;
         private bool rightHandStatus;
+        private GameObject cube;
 
         private void Awake()
         {
@@ -63,7 +65,29 @@ namespace Source
                 _spawnTimer += Time.deltaTime;
             }
         }
-        
+
+        /// <summary>
+        /// Spawns the cube object
+        /// </summary>
+        public void SpawnCube()
+        {
+            cube = Instantiate(cubePrefab);
+            var cameraTransform = _mainCamera.transform;
+            cube.transform.position = cameraTransform.position + cameraTransform.forward;
+        }
+
+        /// <summary>
+        /// Deletes the Cube obejct
+        /// </summary>
+        public void DeleteCube()
+        {
+            if (cube != null)
+            {
+                Destroy(cube);
+            }
+            cube = null;
+        }
+
         //Slider for auto update spawn rate event function
         private void OnSliderValueUpdate(SliderEventData data)
         {
@@ -73,11 +97,11 @@ namespace Source
             }
             else
             {
-                var clampValue = Mathf.Lerp (0, 0.8f, Mathf.InverseLerp (0, 1, data.NewValue));
+                var clampValue = Mathf.Lerp(0, 0.8f, Mathf.InverseLerp(0, 1, data.NewValue));
                 _spawnInterval = 1 - clampValue;
             }
         }
-        
+
         /// <summary>
         /// Spawns an Object (Block) from head or hand depending on the fromHand attribute
         /// </summary>
@@ -89,7 +113,7 @@ namespace Source
             var cameraTransform = _mainCamera.transform;
             var objRb = obj.GetComponent<Rigidbody>();
             var block = obj.GetComponent<BlockScript>();
-            
+
             if (fromHand)
             {
                 //Spawn from hand position + normal from Palm (which is -rightPalm.Up), 30 cm.
@@ -103,7 +127,7 @@ namespace Source
                     cameraTransform.position + cameraTransform.forward * 0.4f + cameraTransform.right * 0.4f;
                 objRb.AddForce(cameraTransform.forward * 0.1f, ForceMode.Impulse);
             }
-            
+
             //Set reset properties if the blocks should reset their position
             if (resetPositionForBlocks)
             {
