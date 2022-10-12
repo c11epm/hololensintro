@@ -19,7 +19,7 @@ MonoBehaviour:
   levelOfDetail: 255
   trianglesPerCubicMeter: 0
   recalculateNormals: 1
-  displayOption: 1
+  displayOption: 2
   visibleMaterial: {fileID: 15303, guid: 0000000000000000f000000000000000, type: 0}
   occlusionMaterial: {fileID: 15302, guid: 0000000000000000f000000000000000, type: 0}
   physicsMaterial: {fileID: 13400000, guid: 26673998bb71a84bda69a8148fd691b8, type: 2}
