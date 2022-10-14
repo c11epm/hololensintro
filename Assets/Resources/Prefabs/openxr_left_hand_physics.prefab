@@ -163,6 +163,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: openxr_left_hand_physics
       objectReference: {fileID: 0}
+    - target: {fileID: 5709336421934327412, guid: da93d751ddc0f64468dfc02f18d02d00, type: 3}
+      propertyPath: m_Materials.Array.data[1]
+      value: 
+      objectReference: {fileID: 2100000, guid: ee03d5df2a6640450a1ac434a57cb218, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: da93d751ddc0f64468dfc02f18d02d00, type: 3}
 --- !u!1 &9003801824079277033 stripped
