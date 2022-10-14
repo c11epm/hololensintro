@@ -65,6 +65,15 @@ namespace Source
             }
         }
 
+        public void ToggleHandMaterial()
+        {
+            HandMeshController[] handMeshControllers = FindObjectsOfType<HandMeshController>();
+            foreach (var handMeshController in handMeshControllers)
+            {
+                handMeshController.ToggleMaterial();
+            }
+        }
+
         /// <summary>
         /// Spawns the cube object
         /// </summary>

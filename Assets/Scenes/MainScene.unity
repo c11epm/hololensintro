@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.18028378, g: 0.22571412, b: 0.30692285, a: 1}
+  m_IndirectSpecularColor: {r: 0.18028328, g: 0.22571328, b: 0.3069218, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -622,12 +622,12 @@ MonoBehaviour:
   m_margin: {x: 0, y: -0.0022691963, z: 0, w: 0}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
-  _SortingLayer: 0
-  _SortingLayerID: 0
-  _SortingOrder: 0
   m_hasFontAssetChanged: 0
   m_renderer: {fileID: 640860285}
   m_maskType: 0
+  _SortingLayer: 0
+  _SortingLayerID: 0
+  _SortingOrder: 0
 --- !u!23 &640860285
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -2253,9 +2253,41 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 14488046446688982, guid: b47d2b8d67c0c33be84d324303a97ac5, type: 3}
+      propertyPath: onClicked.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 14488046446688982, guid: b47d2b8d67c0c33be84d324303a97ac5, type: 3}
+      propertyPath: onClicked.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 14488046446688982, guid: b47d2b8d67c0c33be84d324303a97ac5, type: 3}
+      propertyPath: onClicked.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1095138551}
+    - target: {fileID: 14488046446688982, guid: b47d2b8d67c0c33be84d324303a97ac5, type: 3}
+      propertyPath: onClicked.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 14488046446688982, guid: b47d2b8d67c0c33be84d324303a97ac5, type: 3}
+      propertyPath: onClicked.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: RemoveSpawns
+      objectReference: {fileID: 0}
+    - target: {fileID: 14488046446688982, guid: b47d2b8d67c0c33be84d324303a97ac5, type: 3}
+      propertyPath: onClicked.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: Source.ItemSpawner, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 14488046446688982, guid: b47d2b8d67c0c33be84d324303a97ac5, type: 3}
+      propertyPath: onClicked.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
     - target: {fileID: 255618433659978678, guid: b47d2b8d67c0c33be84d324303a97ac5, type: 3}
       propertyPath: currentIconName
       value: Icon 133
+      objectReference: {fileID: 0}
+    - target: {fileID: 849527754161388368, guid: b47d2b8d67c0c33be84d324303a97ac5, type: 3}
+      propertyPath: m_RootOrder
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 1215891772897456384, guid: b47d2b8d67c0c33be84d324303a97ac5, type: 3}
       propertyPath: m_text
@@ -2531,11 +2563,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4472495430398838107, guid: b47d2b8d67c0c33be84d324303a97ac5, type: 3}
       propertyPath: onClicked.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: RemoveSpawns
+      value: ToggleHandMaterial
       objectReference: {fileID: 0}
     - target: {fileID: 4472495430398838107, guid: b47d2b8d67c0c33be84d324303a97ac5, type: 3}
       propertyPath: onClicked.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
-      value: ItemSpawner, Assembly-CSharp
+      value: Source.ItemSpawner, Assembly-CSharp
       objectReference: {fileID: 0}
     - target: {fileID: 4472495430398838107, guid: b47d2b8d67c0c33be84d324303a97ac5, type: 3}
       propertyPath: onClicked.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
@@ -2543,7 +2575,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5351508955972995752, guid: b47d2b8d67c0c33be84d324303a97ac5, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6283386832317208269, guid: b47d2b8d67c0c33be84d324303a97ac5, type: 3}
       propertyPath: m_text
